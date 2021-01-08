@@ -4,21 +4,21 @@
       <ul>
         {{ if .Prev }}
         <li>
-          <a class="icon" href=" {{ .Prev.Permalink }}">
-            <i class="fas fa-chevron-left"></i>
+          <a class="icon" title="Previous Post" rel="prev" href=" {{ .Prev.Permalink }}">
+            <img src="{{ "images/arrow.svg" | absURL }}">
           </a>
         </li>
         {{ end }}
         {{ if .Next }}
         <li>
-          <a class="icon" href="{{ .Next.Permalink }}">
-            <i class="fas fa-chevron-right"></i>
+          <a class="icon" title="Next Post" rel="next" href="{{ .Next.Permalink }}">
+            <img src="{{ "images/arrow.svg" | absURL }}">
           </a>
         </li>
         {{ end }}
         <li>
-          <a class="icon" href="/">
-            <i class="fas fa-chevron-up"></i>
+          <a class="icon" title="Homepage" href="/">
+            <img src="{{ "images/arrow.svg" | absURL }}">
           </a>
         </li>
       </ul>

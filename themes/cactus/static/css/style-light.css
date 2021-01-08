@@ -702,6 +702,17 @@ body {
 #header-post a.icon:hover {
   color: #2bbc8a;
 }
+#header-post a[rel="next"] img {
+  transform: rotate(180deg);
+}
+#header-post a[href="/"] img {
+  transform: rotate(90deg);
+}
+#header-post a img {
+  display: block;
+  width: 25px;
+  height: 25px;
+}
 #header-post nav ul {
   display: block;
   list-style-image: none;
@@ -726,7 +737,6 @@ body {
 }
 #header-post ul li {
   display: inline-block;
-  margin-right: 15px;
   vertical-align: middle;
 }
 #header-post ul li:last-child {
