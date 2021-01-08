@@ -6,7 +6,7 @@ slug: "moving-from-fabric-1-to-fabric-2"
 
 I've long used Fabric for simple deploy scripts to essentially ssh in, `git pull`, `composer install` or `bundle`, restart apps, clear caches, etc. It's also handy for local dev shortcuts like `fab assets` as a stand-in for the more wordy `npx gulp --production` or `fab dev` to simultaneously fire up sphinx, a tornado websocket app, gulp, etc.
 
-With a new M1 MacBook Air, I ran into issues getting `fabric@1.4` to play nicely with homebrew, and decided to once again try my hand at converting my super simple deploy scripts to the new v2 syntax. Information is scarce on sample Fabric 2 scripts, but I did find an aptly titled post "[Why Is Fabric 2 so Hard?](https://vsupalov.com/fabric-2-example-fabfile/)" which helped me get started.
+With a new M1 MacBook Air, I ran into issues getting `fabric@1.4` to play nicely with homebrew, and decided to once again try my hand at converting my simple deploy scripts to the new v2 syntax. Information is scarce on sample Fabric 2 scripts, but I did find an aptly titled post "[Why Is Fabric 2 so Hard?](https://vsupalov.com/fabric-2-example-fabfile/)" which helped me get started.
 
 There's an [upgrade guide](http://www.fabfile.org/upgrading.html), but my god it's complicated, until it's not complicated enough with the sample v1->v2 migration at the end of the page.
 
