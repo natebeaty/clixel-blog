@@ -64,6 +64,12 @@ echo $OUTPUT
 echo $OUTPUT | tr -d '\n' | pbcopy
 </code></pre>
 
-<p>You set your name in the script, drop it in your <code>~/bin</code> dir and <code>chmod +x</code> it, then run <code>gitlog</code> from a repo dir with various options, the default being the last 8 hours, or you can specify a day. Your git commit messages are concatenated in a format I use on timesheets, ready to be pasted into whatever time-tracking program you prefer.</p>
+<p>You set your name in the script, drop it in your <code>~/bin</code> dir and <code>chmod +x</code> it, then run <code>gitlog</code> from a repo dir with various options, the default being the last 8 hours, or you can specify a day. Your git commit messages are concatenated in a format I use on timesheets, ready to be pasted into whatever time-tracking program you prefer. e.g.:</p>
+
+<pre><code>$ gitlog
+Log for last 8 hours (also in clipboard):
+----
+various copy updates; more readme blather; conf tweaks; remove jquery and inline js, show 10 recent posts w/ archive link, remove nav from header; add fab dev, bring back home link for footer nav
+</code></pre>
 
 <p>Not the most elegant script, could certainly be fancier—but I sure use the hell out of it as-is.</p>
