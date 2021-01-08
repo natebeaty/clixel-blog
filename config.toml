@@ -16,10 +16,10 @@ paginate = "100"
 	logo = "images/clixel-blog.png"
 
 # Main menu which appears below site header.
-[[menu.main]]
-name = "Home"
-url = "/"
-weight = 1
+#[[menu.main]]
+#name = "Home"
+#url = "/"
+#weight = 1
 
 [[menu.main]]
 name = "All posts"
