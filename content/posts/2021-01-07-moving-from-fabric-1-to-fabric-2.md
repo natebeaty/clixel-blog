@@ -4,9 +4,9 @@ date: 2021-01-07T17:48:39-05:00
 slug: "moving-from-fabric-1-to-fabric-2"
 ---
 
-I've long used Fabric for simple deploy scripts to essentially ssh in, `git pull`, `composer install` or `bundle`, restart apps, clear caches, etc. As well as handling local dev commands like `fab assets` to run `npx gulp --production` or `fab dev` to fire up sphinx, redis, gulp, etc.
+I've long used Fabric for simple deploy scripts to essentially ssh in, `git pull`, `composer install` or `bundle`, restart apps, clear caches, etc. It's also handy for local dev shortcuts like `fab assets` as a stand-in for the more wordy `npx gulp --production` or `fab dev` to simultaneously fire up sphinx, a tornado websocket app, gulp, etc.
 
-With a new M1 MacBook Air, I ran into issues getting `fabric@1.4` to play nice with homebrew, and decided to once again try my hand At converting my super simple deploy scripts to the new v2 syntax. Information is scarce on sample Fabric 2 sample scripts, but I did find an aptly titled post "[Why Is Fabric 2 so Hard?](https://vsupalov.com/fabric-2-example-fabfile/) which helped me get started.
+With a new M1 MacBook Air, I ran into issues getting `fabric@1.4` to play nicely with homebrew, and decided to once again try my hand at converting my super simple deploy scripts to the new v2 syntax. Information is scarce on sample Fabric 2 scripts, but I did find an aptly titled post "[Why Is Fabric 2 so Hard?](https://vsupalov.com/fabric-2-example-fabfile/)" which helped me get started.
 
 There's an [upgrade guide](http://www.fabfile.org/upgrading.html), but my god it's complicated, until it's not complicated enough with the sample v1->v2 migration at the end of the page.
 
@@ -49,7 +49,7 @@ Here's my simple v1 fabfile.py:
 
 And this is where I'm at so far with a functional v2 version:
 
-    from fabric import task, Connection
+    from fabric import task
     from invoke import run as local
 
     remote_path = "/home/natebeaty/apps/nb-craft-staging"
@@ -87,5 +87,4 @@ And this is where I'm at so far with a functional v2 version:
 
 Still a few things to port over, but it's working well enough. The part that feels ugly is the use of `global` in `production()`, but I couldn't find any examples of how folks are overriding connection configs in a Fabric v2 file.
 
-Using `c.local()` I was getting errors finding `npx` because my $PATH was different. This [StackOverflow comment](https://stackoverflow.com/questions/51793744/how-do-i-run-a-local-command-with-fabric-2#comment109146032_55704170) pointed me to using `from invoke import run as local` and then `local()` instead of `c.local()` which fixed my $PATH issues and then `npx gulp` worked fine.
-
+Using `c.local()` I was getting errors finding `npx` because my $PATH was different, missing the M1 homebrew `/opt/homebrew/bin`. This [StackOverflow comment](https://stackoverflow.com/questions/51793744/how-do-i-run-a-local-command-with-fabric-2#comment109146032_55704170) pointed me to using `from invoke import run as local` then `local()` instead of `c.local()`. This fixed my $PATH issues and `npx gulp` worked fine.
