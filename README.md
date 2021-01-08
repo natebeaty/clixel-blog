@@ -1,6 +1,6 @@
 # Clixel Blog
 
-A Hugo version of [blog.clixel.com](https://blog.clixel.com) using a lightly modified theme [cactus](https://github.com/monkeyWzr/hugo-theme-cactus).
+A Hugo version of [blog.clixel.com](https://blog.clixel.com) using a lightly modified theme, [cactus](https://github.com/monkeyWzr/hugo-theme-cactus).
 
 ## Install
 
