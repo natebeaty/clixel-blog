@@ -17,3 +17,7 @@ def upload(c):
 @task
 def build(c):
     local("hugo -D")
+
+@task
+def dev(c):
+    local("hugo server -D")

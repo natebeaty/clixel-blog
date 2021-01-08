@@ -15,11 +15,11 @@ paginate = "100"
   projectsUrl = "https://github.com/natebeaty"
 	logo = "images/clixel-blog.png"
 
-# Main menu which appears below site header.
-#[[menu.main]]
-#name = "Home"
-#url = "/"
-#weight = 1
+# Main nav
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
 
 [[menu.main]]
 name = "Archive"
