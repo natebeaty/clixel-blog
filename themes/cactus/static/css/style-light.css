@@ -762,7 +762,7 @@ body {
   color: #d44375;
 }
 #header-post #menu {
-  visibility: hidden;
+  /*visibility: hidden;*/
   margin-right: 2rem;
 }
 #header-post #nav {
