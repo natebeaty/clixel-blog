@@ -79,6 +79,8 @@
           <span><a href="{{ .Permalink }}">{{ if .Title }} {{- .Title -}} {{ else }} {{- print "Untitled" -}}{{ end }}</a></span>
         </li>
       {{ end }}
+      <li class="post-item">&nbsp;</li>
+      <li class="post-item"><div class="meta"></div><a href="{{ .Site.Params.mainSection | absURL }}">Archive</a></li>
     </ul>
     {{ end }}
   </section>

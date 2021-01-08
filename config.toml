@@ -8,10 +8,10 @@ paginate = "100"
 [params]
   description = "Wherein [Nate](https://natebeaty.com/) gets the geek out."
   colortheme = "light" # dark, light, white, or classic
-  showAllPostsOnHomePage = true
-  # css = ["css/custom.css"]
-  # mainSection = "posts" # set your main section (used as the link for the “writings” title on the homepage)
-  postsOnHomePage = 3
+  showAllPostsOnHomePage = false
+  mainSection = "posts"
+  postsOnHomePage = 10
+  tagsOverview = false
   projectsUrl = "https://github.com/natebeaty"
 	logo = "images/clixel-blog.png"
 
@@ -22,7 +22,7 @@ paginate = "100"
 #weight = 1
 
 [[menu.main]]
-name = "All posts"
+name = "Archive"
 url = "/posts"
 weight = 2
 
