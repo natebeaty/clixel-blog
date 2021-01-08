@@ -10,9 +10,8 @@ paginate = "100"
   colortheme = "light" # dark, light, white, or classic
   showAllPostsOnHomePage = true
   # css = ["css/custom.css"]
-  postsOnHomePage = 3
   # mainSection = "posts" # set your main section (used as the link for the “writings” title on the homepage)
-  showProjectsList = false
+  postsOnHomePage = 3
   projectsUrl = "https://github.com/natebeaty"
 	logo = "images/clixel-blog.png"
 
@@ -46,15 +45,3 @@ weight = 2
 #[[params.social]]
 #  name = "twitter"
 #  link = "https://twitter.com/natebeaty"
-
-[markup]
-  [markup.highlight]
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    style = "monokai"
-    tabWidth = 4
