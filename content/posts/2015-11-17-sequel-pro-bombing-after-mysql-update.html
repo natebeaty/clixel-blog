@@ -1,0 +1,16 @@
++++
+date = "2015-11-17"
+title = "Sequel Pro bombing after MySQL update"
+slug = "sequel-pro-bombing-after-mysql-update"
+layout = "blog"
++++
+<p>After a <code>brew update</code> and <code>brew upgrade</code>, Sequel Pro suddenly stopped connecting to localhost, bombing without much explanation. Several google searches later, I found <a href="https://github.com/sequelpro/sequelpro/issues/2302">this ticket</a> which mentioned running mysql_upgrade.</p>
+
+<p>It&rsquo;s possible I missed a homebrew notice about this, as it updated a ton of packages, but this ended up solving the issue:</p>
+
+<p><code>mysql_upgrade -u root -p</code></p>
+
+<p>Followed by restarting mysql:</p>
+
+<p><code>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</code>
+<code>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</code></p>

@@ -1,0 +1,39 @@
++++
+date = "2017-12-12"
+title = "Chrome 63 breaks local *.dev domains"
+slug = "chrome-63-breaks-local-dev-domains"
+layout = "blog"
++++
+<p>I did a complete wipe and reinstall of macOS High Sierra on my aging 2012 mbp, thinking it would solve all my random woes (false). As I was setting up my dev environment, I was baffled when both Safari and Chrome were redirecting all <code>*.dev</code> domain requests to https. Console showed no 301 redirects. Wth? I thought it was something I messed up in Apache config and spent a few hours beating my head against the keyboard to no avail.</p>
+
+<p>Turns out <code>.dev</code> is a TLD owned by Google, and they recently <a href="https://ma.ttias.be/chrome-force-dev-domains-https-via-preloaded-hsts/">preloaded HSTS rules for the TLD</a> which means you cannot use http with <code>*.dev</code> any more. Fun!</p>
+
+<p>I decided to switch all my dev domains to <code>*.localhost</code>. (I also toyed around with adding self-signed SSL certs for each <code>*.dev</code> domain, with some luck on my home computer and less luck on my work computer. In the end I decided to just go with switching to <code>*.localhost</code>.)</p>
+
+<p>Here&rsquo;s a quick rundown of things I had to do. Hopefully it helps someone.</p>
+
+<p>I use dnsmasq to avoid having to edit <code>/etc/hosts</code> for every dev domain I work on. <a href="https://gist.github.com/szhajdu/6911696c6f8a2a50814fe6a5724f05bf">This gist</a> has the latest way to do this.</p>
+
+<p>First, add <code>*.localhost</code> to dnsmasq setup:</p>
+
+<pre><code>echo 'address=/.localhost/127.0.0.1' &gt;&gt; $(brew --prefix)/etc/dnsmasq.conf
+sudo bash -c 'echo "nameserver 127.0.0.1" &gt; /etc/resolver/localhost'
+sudo brew services stop dnsmasq &amp;&amp; sudo brew services start dnsmasq
+</code></pre>
+
+<p><code>ping foo.localhost</code> for sanity to see if it works. May have to reboot if it doesn&rsquo;t. I did, but it may have been from other finagling.</p>
+
+<p>I use Homebrew Apache and <code>mod_vhost_alias</code> (<a href="https://mallinson.ca/osx-web-development/">good tutorial here</a>) so open up the vhost config with <code>subl /usr/local/etc/httpd/extra/httpd-vhosts.conf</code> and add this block:</p>
+
+<pre><code>&lt;virtualhost&gt;
+  ServerAlias localhost *.localhost
+  VirtualDocumentRoot /Users/nate/Sites/%1/web/
+  UseCanonicalName Off
+&lt;/virtualhost&gt;
+</code></pre>
+
+<p><code>sudo apachectl restart</code></p>
+
+<p>We use Bedrock to make Wordpress development 17% less painful (note document root above with &hellip;/web/). The only thing you need to do is update your local <code>.env</code> file with <code>WP_HOME=http://cfs.localhost</code>. If you use the super handy <a href="http://wp-cli.org/">wp-cli</a> you can run <code>wp search-replace 'cfs.dev' 'cfs.localhost'</code> to update db references.</p>
+
+<p>We have long been using this <a href="https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions">excellent guide from Grav</a> as a jumping off point to set up our dev environments, which already has an update noting this change from Chrome 63.</p>

@@ -1,0 +1,64 @@
++++
+date = "2015-05-12"
+title = "Duotone Images With ImageMagick In Wordpress"
+slug = "duotone-images-with-imagemagick-in-wordpress"
+layout = "blog"
++++
+<p>My dayjob studio <a href="http://www.firebellydesign.com/">Firebelly</a> loves duotone images in their site designs. When we&rsquo;re using Rails, it&rsquo;s pretty easy to use Paperclip or Dragonfly to send along commands to ImageMagick on the fly, e.g.</p>
+
+<pre><code># Paperclip
+has_attached_file :image_file, 
+  styles: { wallpaper: "1600x1000&gt;" },
+  convert_options: {
+    wallpaper: "-quality 60 -strip -fill Black -colorize 27% -background Black \\( +clone -fill White -colorize 100 -background \"Gray(70%)\" -vignette 0x65+25%+5% \\) -compose multiply -composite"
+  }
+
+# Dragonfly
+</code></pre>
+
+<p>We&rsquo;re using this technique on a Bedrock/Sage Wordpress site, and I wanted to avoid applying this to every uploaded image via a WP hook. I ended up with this beast of a function (fugly PHP alert) that creates a duotone image using two hex values:</p>
+
+<pre><code>/**
+ * Get header bg for post, duotone treated with the random IHC_BACKGROUND + Dark Blue 
+ */
+function get_header_bg($post) {
+  $header_bg = false;
+  if (has_post_thumbnail($post-&gt;ID)) {
+    $thumb_id = get_post_thumbnail_id($post-&gt;ID);
+    $background_image = get_attached_file($thumb_id, 'full', true);
+    $upload_dir = wp_upload_dir();
+    $base_dir = $upload_dir['basedir'] . '/backgrounds/';
+
+    // Build treated filename with thumb_id in case there are filename conflicts
+    $treated_filename = preg_replace("/.+\/(.+)\.(\w{2,5})$/", $thumb_id."-$1-".IHC_BACKGROUND.".$2", $background_image);
+    $treated_image = $base_dir . $treated_filename;
+
+    // If treated file doesn't exist, create it
+    if (!file_exists($treated_image)) {
+
+      // Create background directory if necessary
+      if(!file_exists($base_dir)) {
+        mkdir($base_dir);
+      }
+
+      exec('/usr/local/bin/convert '.$background_image.' -colorspace gray -level +10% +level-colors "#44607f","#'.IHC_BACKGROUND.'" '.$treated_image);
+    }    
+    $header_bg = ' style="background-image:url(' . $upload_dir['baseurl'] . '/backgrounds/' . $treated_filename . ');"';
+  }
+  return $header_bg;
+}
+</code></pre>
+
+<p>It&rsquo;s always so difficult finding info on this sort of thing in ImageMagick forums, thought I&rsquo;d give it a home in case someone else needs it. The basic command is:</p>
+
+<pre><code>convert source.jpg -colorspace gray -level +10% +level-colors "#44607f","#c1d6d8" treated.jpg
+</code></pre>
+
+<p>Which will give you this sort of treatment:</p>
+
+<p><img src="https://64.media.tumblr.com/8687b273ab6e5fd61a8b8ddd0cf704df/tumblr_inline_no9fbvQrRR1qzvtrf_540.jpg" alt=""/></p>
+
+<p>Update 4/2017: If newer versions of ImageMagick are giving you trouble, you can use this variation to get a similar duotone effect:</p>
+
+<pre><code>convert in.jpg +profile "*" -resize 1400x -quality 65 -modulate 100,0 -size 256x1! gradient:#44607f-#C2D6D9 -clut out.jpg
+</code></pre>

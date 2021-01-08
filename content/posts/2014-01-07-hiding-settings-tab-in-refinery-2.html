@@ -1,0 +1,14 @@
++++
+date = "2014-01-07"
+title = "Hiding Settings Tab in Refinery 2"
+slug = "hiding-settings-tab-in-refinery-2"
+layout = "blog"
++++
+<p>Quick note of something that took me a while to find: if you install the <a href="https://github.com/refinery/refinerycms-blog">Refinery Blog engine</a> but don&rsquo;t need the Settings tab showing in the admin, you can easily hide it by adding config/initializers/refinery/settings.rb with:</p>
+
+<pre><code>Refinery::Settings.configure do |config|
+  config.enable_interface = false
+end
+</code></pre>
+
+<p>(This is for refinerycms / refinerycms-blog v2.1.0)</p>

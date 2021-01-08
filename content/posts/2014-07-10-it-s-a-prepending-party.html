@@ -1,0 +1,29 @@
++++
+date = "2014-07-10"
+title = "It's a Prepending Party"
+slug = "it-s-a-prepending-party"
+layout = "blog"
++++
+<p>I just realized a very powerful and simple feature of <a href="https://incident57.com/codekit/">CodeKit</a> that has made my life immensely easier, as well as giving a speed boost to my sites.</p>
+
+<p>You can prepend all the libraries you&rsquo;re using on a project at the top of your main javascript file like so:</p>
+
+<pre><code>// @codekit-prepend "mootools-core-1.5.0.js"
+// @codekit-prepend "mootools-more-1.5.0.js"
+// @codekit-prepend "shadowbox.js"
+// @codekit-prepend "chosen.js"
+// @codekit-prepend "slider.js"
+</code></pre>
+
+<p>And then set the output to be Minified + source map (for easier debugging):</p>
+
+<p><img src="https://64.media.tumblr.com/a6e0f8972c8c0a0fb7f99505392d2590/tumblr_inline_n8ibg3eukY1qzvtrf.png" alt="Codekit options for javascript"/></p>
+
+<p>And then in your footer you can get all your behavior with one HTTP request:</p>
+
+<pre><code>&lt;script src="&lt;?php echo MEDIA_URL; ?&gt;/js/min/application-ck.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Stupid simple, but for some reason it just hit me that this was possible, and now I use it all the time. I love finding new ways to improve my workflow with CodeKit.</p>
+
+<p>(Underwear drawer notes: yes, I still use <a href="http://mootools.net/">MooTools</a> on several of my older sites, as well as scrappy ol&rsquo; PHP. I have been wooed to jQuery and sexier Ruby + Python methods of coding over the years, but it&rsquo;s good to keep a wide variety of skills in your tool belt.)</p>

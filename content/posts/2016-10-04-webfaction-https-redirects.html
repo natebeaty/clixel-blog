@@ -1,0 +1,25 @@
++++
+date = "2016-10-04"
+title = "WebFaction Https Redirects"
+slug = "webfaction-https-redirects"
+layout = "blog"
++++
+<p>Yet another thing to file under &ldquo;beating my head against a wall for hours before figuring out something simple&quot;—argh!</p>
+
+<p>I wanted to redirect all requests to https for a WebFaction-hosted site, and wasn&rsquo;t having any luck with the normal:</p>
+
+<pre><code>RewriteEngine On
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</code></pre>
+
+<p>I was getting &quot;too many redirects&rdquo; errors. After digging around I found mention of https redirects on <a href="https://docs.webfaction.com/software/static.html#static-redirecting-from-http-to-https">this page</a> with this code:</p>
+
+<pre><code>RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</code></pre>
+
+<p>Note the <code>%{HTTP:X-Forwarded-SSL}</code> instead of <code>%{HTTPS}</code>.</p>
+
+<p>Well howdy-doody it works now, hallelujah, back to more important coding matters like my <a href="http://codepen.io/natebeaty/full/yJdgpj/">giant SVG head navigation</a>.</p>

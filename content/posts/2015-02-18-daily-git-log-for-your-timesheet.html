@@ -1,0 +1,28 @@
++++
+date = "2015-02-18"
+title = "Daily Git Log For Your Timesheet"
+slug = "daily-git-log-for-your-timesheet"
+layout = "blog"
++++
+<p>This is probably the most satisfying command-line lifehack of the year for me:</p>
+
+<pre><code>git log --author=Nate --since=1.day.ago --all-match --format='%s' | tail -r | paste -s -d : - | sed -e 's/:/; /g' | pbcopy
+</code></pre>
+
+<p>This takes all your commit messages for the last day, concatenates them with a semicolon, and shoves them into your clipboard to paste into Harvest (or <a href="http://stuntsoftware.com/onthejob/">On The Job</a> if I&rsquo;m working freelance).</p>
+
+<p>Breakdown:</p>
+
+<ul><li><code>git log</code> options seem pretty obvious except <code>--format='%s'</code> which outputs just the commit message on each line</li>
+<li><code>tail -r</code> reverses order of lines</li>
+<li><code>paste -s -d : -</code> concatenates &amp; separates each line with a colon</li>
+<li><code>sed -e 's/:/; /g'</code> replaces the colon with a semicolon and a space (couldn&rsquo;t figure out a way to do this in one command)</li>
+<li><code>pbcopy</code> shoves the result into your clipboard on OS X</li>
+</ul><p>I&rsquo;m guessing there&rsquo;s a slightly prettier way to do this, but there&rsquo;s a reason I keep trying to get everyone to start calling me Hacksaw because I&rsquo;ve always really wanted a nickname and then I could get a tattoo.</p>
+
+<p>You can also do a a custom span of time e.g. <code>--since=3.days.ago --until=1.day.ago</code> if you want more than just the last day of commits.</p>
+
+<p><strong>UPDATE:</strong> If you are in the thick of push battles with your coworker on a project and want to avoid the &ldquo;Merge branch&rdquo; lines from git, you can just add <code>sed '/Merge branch/d'</code> to the mix:</p>
+
+<pre><code>git log --author=Nate --since=1.day.ago --all-match --format='%s' | sed '/Merge branch/d' | tail -r | paste -s -d : - | sed -e 's/:/; /g' | pbcopy
+</code></pre>

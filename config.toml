@@ -1,0 +1,60 @@
+baseURL = "https://blog.clixel.com/"
+languageCode = "en-us"
+theme = "cactus"
+title = "Clixel Blog"
+copyright = "Nate Beaty"
+paginate = "100"
+
+[params]
+  description = "Wherein [Nate](https://natebeaty.com/) gets the geek out."
+  colortheme = "light" # dark, light, white, or classic
+  showAllPostsOnHomePage = true
+  # css = ["css/custom.css"]
+  postsOnHomePage = 3
+  # mainSection = "posts" # set your main section (used as the link for the “writings” title on the homepage)
+  showProjectsList = false
+  projectsUrl = "https://github.com/natebeaty"
+	logo = "images/clixel-blog.png"
+
+# Main menu which appears below site header.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+#[[menu.main]]
+#name = "Tags"
+#url = "/tags"
+#weight = 3
+
+#[[menu.main]]
+#name = "About"
+#url = "/about"
+#weight = 4
+
+#[[params.social]]
+#  name = "github"
+#  link = "https://github.com/natebeaty"
+#[[params.social]]
+#  name = "email"
+#  link = "nate@clixel.com"
+#[[params.social]]
+#  name = "twitter"
+#  link = "https://twitter.com/natebeaty"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 4

@@ -1,0 +1,54 @@
++++
+date = "2015-02-23"
+title = "String Interpolation Using Rails ActiveRecord Objects"
+slug = "string-interpolation-using-rails-activerecord-objects"
+layout = "blog"
++++
+<p>I often find myself wanting to use several attributes of a ActiveRecord object in a string, but have until now been unable to track down exactly how to do that.</p>
+
+<p>Say I have this simple model with a custom method:</p>
+
+<pre><code>class Applicant &lt; ActiveRecord::Base
+    def full_name
+      [first_name,last_name].reject{ |e| e.empty? }.join ' '
+    end
+end
+</code></pre>
+
+<p>If I want to build an email header using that custom method and a few standard attributes, trying this:</p>
+
+<pre><code>subject = "New Application from %{full_name} at %{city}, %{state}" % @applicant
+</code></pre>
+
+<p>will cough up the error:</p>
+
+<p><code>ArgumentError: one hash required</code></p>
+
+<p>Ok, so we need a hash out of our AR object. How about:</p>
+
+<pre><code>subject = "New Application from %{full_name} at %{city}, %{state}" % @applicant.as_json
+</code></pre>
+
+<p>gives us this:</p>
+
+<p><code>KeyError: key{full_name} not found</code></p>
+
+<p>Right! We have to add our custom method manually:</p>
+
+<pre><code>subject = "New Application from %{full_name} at %{city}, %{state}" % @applicant.as_json(methods: :full_name)
+</code></pre>
+
+<p>Crap! Still failing:</p>
+
+<p><code>KeyError: key{full_name} not found</code></p>
+
+<p>Turns out the hash needs to have keys that are symbols. No fear, <a href="http://apidock.com/rails/Hash/symbolize_keys">symbolize_keys</a> to the rescue:</p>
+
+<pre><code>subject = "New Application from %{full_name} at %{city}, %{state}" % @applicant.as_json(methods: :full_name).symbolize_keys
+</code></pre>
+
+<p>And voila:</p>
+
+<p><code>"New Application from Nate Beaty at Chicago, IL"</code></p>
+
+<p>For what seems like such a simple task, this has tripped me up for quite some time, and it&rsquo;s been difficult to Google exactly what was needed to make this happen.</p>

@@ -1,0 +1,26 @@
+RewriteEngine On
+RewriteBase /
+
+# old tumblr URLs
+RewriteRule ^post/185038467168/gitlog-automagical-timesheet-filler-outer-redux /posts/gitlog-automagical-timesheet-filler-outer-redux [R=301,L]
+RewriteRule ^post/168469618243/chrome-63-breaks-local-dev-domains /posts/chrome-63-breaks-local-dev-domains [R=301,L]
+RewriteRule ^post/151350619123/webfaction-https-redirects /posts/webfaction-https-redirects [R=301,L]
+RewriteRule ^post/133429331758/sequel-pro-bombing-after-mysql-update /posts/sequel-pro-bombing-after-mysql-update [R=301,L]
+RewriteRule ^post/133421694233/libsass-node-sass-gulp-sass-my-ass /posts/libsass-node-sass-gulp-sass-my-ass [R=301,L]
+RewriteRule ^post/118816247013/duotone-images-with-imagemagick-in-wordpress /posts/duotone-images-with-imagemagick-in-wordpress [R=301,L]
+RewriteRule ^post/111871444868/string-interpolation-using-rails-activerecord /posts/string-interpolation-using-rails-activerecord-objects [R=301,L]
+RewriteRule ^post/111678185328/getting-image-dimensions-for-sublime /posts/getting-image-dimensions-for-sublime [R=301,L]
+RewriteRule ^post/111391696763/daily-git-log-for-your-timesheet /posts/daily-git-log-for-your-timesheet [R=301,L]
+RewriteRule ^post/110992694943/yosemite-pip-install-fix /posts/yosemite-pip-install-fix [R=301,L]
+RewriteRule ^post/91369761638/its-a-prepending-party /posts/it-s-a-prepending-party [R=301,L]
+RewriteRule ^post/73130664562/flat-file-future /posts/flat-file-future [R=301,L]
+RewriteRule ^post/72561211060/hiding-settings-tab-in-refinery /posts/hiding-settings-tab-in-refinery-2 [R=301,L]
+RewriteRule ^post/63198689406/where-i-live-2013-edition /posts/where-i-live-2013-edition [R=301,L]
+RewriteRule ^post/63195939159/where-i-live-2011-edition /posts/where-i-live-2011-edition [R=301,L]
+RewriteRule ^post/63195806806/my-instapaper-reader /posts/my-instapaper-reader [R=301,L]
+RewriteRule ^post/63195506822/ipad-the-bed-computer /posts/ipad-the-bed-computer [R=301,L]
+RewriteRule ^post/63195021425/coding-ye-olde-todo-app /posts/coding-ye-olde-todo-app [R=301,L]
+RewriteRule ^post/63194849457/the-age-of-entitlement-or-why-hasnt-the-hammer-been /posts/the-age-of-entitlement-or-why-hasn-t-the-hammer-been-updated-it-s-been-32-000-years-already [R=301,L]
+RewriteRule ^post/47906179662/from-awe-and-wonder-to-ugh-and-what-my-initial /posts/from-awe-and-wonder-to-ugh-and-what-my-initial-impressions-of-the-ipad [R=301,L]
+RewriteRule ^post/47905621837/where-i-live-2010-edition /posts/where-i-live-2010-edition [R=301,L]
+RewriteRule ^post/47906826848/forklift-2-vs-transmit-4-dual-review-of-the-dual /posts/forklift-2-vs-transmit-4-dual-review-of-the-dual-pane [R=301,L]

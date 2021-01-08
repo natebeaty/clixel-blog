@@ -1,0 +1,35 @@
++++
+date = "2015-02-21"
+title = "Getting Image Dimensions For Sublime"
+slug = "getting-image-dimensions-for-sublime"
+layout = "blog"
++++
+<p>Sublime Text doesn&rsquo;t have any way to get dimensions for an image in the sidebar yet, though a sidebar API may be coming soon. <sup id="fnref:fn-simplerintm"><a href="#fn:fn-simplerintm" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+
+<p>I&rsquo;ve found myself writing this simple script a few times on various machines, so I thought I&rsquo;d jot it down:</p>
+
+<pre><code>#!/bin/bash
+
+FILENAME=`basename $1`
+DIMS=`/usr/local/bin/identify -format "width: %wpx;\nheight: %hpx;" $1`
+printf "background: url($FILENAME) no-repeat;\n$DIMS\n" | pbcopy
+</code></pre>
+
+<p>This uses a <a href="http://brew.sh/">Homebrew</a> installed Imagemagick&rsquo;s <code>identify</code> command to toss CSS-ready width/height into your clipboard. I then set up a custom Tool entry inside the-dusty-albeit-still-my-fav-dual-pane-file-manager <a href="http://www.binarynights.com/forklift/">ForkLift</a>:</p>
+
+<p><img src="http://i.imgur.com/rJOBfbT.png" alt="ForkLift Tool prefs"/></p>
+
+<p>And if you want, you can set a keyboard shortcut also. (Note that you have to close prefs after adding your tool, and then <code>cmd-,</code> again to have it show up in the Keyboard Shortcuts pane—one of several minor longstanding bugs I try to ignore.)</p>
+
+<p><img src="http://i.imgur.com/rWMGdCm.png" alt="ForkLift Keyboard prefs"/></p>
+
+<p>Now you can select an image in ForkLift, hit the key command you specified, and then <code>cmd-shift-v</code> will paste it into Sublime Text respecting indentation.</p>
+
+<p>Of course you may need to fix the relative path of the image filename. Still somewhat useful until ST3 manages to support this type of functionality from the sidebar.</p>
+
+<div class="footnotes" role="doc-endnotes">
+<hr><ol><li id="fn:fn-simplerintm" role="doc-endnote">
+<p>This is something I miss from TextMate, where you can just drag an image into your code to do this, even in the ancient 1.x releases: <img src="http://i.imgur.com/HLYJ9T4.gif" alt="TextMate FTW"/> (Granted, it&rsquo;s getting the relative image path wrong here anyway! You just can&rsquo;t win.) <a href="#fnref:fn-simplerintm" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+</ol></div>

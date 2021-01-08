@@ -1,0 +1,55 @@
++++
+date = "2010-04-03"
+title = "ForkLift 2 vs. Transmit 4 - Dual Review of the Dual Pane"
+slug = "forklift-2-vs-transmit-4-dual-review-of-the-dual-pane"
+layout = "blog"
++++
+<p>Ages ago, in prehistoric computer times, before Apple fully realized its uber-technological prowess and took over the world with <a href="http://blog.clixel.com/post/47906179662/from-awe-and-wonder-to-ugh-and-what-my-initial">touchy glass devices</a>, I was enamored with a one <a href="http://en.wikipedia.org/wiki/Amiga">Commodore Amiga</a>. To this day I lament that Amiga isn&rsquo;t giving Apple competition, as it was <em>way</em> ahead of its time with multitasking and distributing tasks to multiple processors, as well as just feeling like a creative machine. I mean, c'mon, it had B52/ROCK LOBSTER <sup id="fnref:fn-rocklobster"><a href="#fn:fn-rocklobster" class="footnote-ref" role="doc-noteref">1</a></sup> stamped on the circuit board! One thing I used a lot, and could never figure out why OS X had no equivalent, was a dual-pane file manager. It took ten years, but there are finally some very solid options out there.</p>
+
+<p>Since the early announcement of <a href="http://www.binarynights.com/forklift">ForkLift</a>, I have kept a close eye on the development, and have helped with various stages of beta testing. Along with <a href="http://macromates.com/">TextMate</a>, ForkLift has been in my daily workflow for years now. It&rsquo;s incredibly fast, reliable, and does just about everything I need from local and remote file management. I couldn&rsquo;t imagine working without it at this point. Yesterday they released the <a href="http://www.binarynights.com/blog/forklift_blog/the-second-coming-of-file-management-beta.html">first public beta of ForkLift 2</a>, a huge upgrade to the already-capable 1.7.</p>
+
+<p><strong>ForkLift 2:</strong>
+<strong><img src="https://64.media.tumblr.com/35d04c0b8314c2779038035eafc0b2e1/tumblr_inline_ml7x9w1qrV1qz4rgp.png" alt="image"/></strong>
+<img src="https://64.media.tumblr.com/e9cfb3555dfbe03868615adee7ea140e/tumblr_inline_ml7xa4ZBcY1qz4rgp.png" alt="image"/><img src="https://64.media.tumblr.com/1262750dcbb987c051b9f3ace35708d8/tumblr_inline_ml7xayfecH1qz4rgp.png" alt="image"/></p>
+
+<p>The list of new features in Forklift 2 is impressive:</p>
+
+<ul><li><strong>Complete rewrite of the codebase</strong>, most importantly their transfer engine. I never felt FL1.7 was slow, but the speed difference in navigating SFTP connections is incredible. This thing blazes.</li>
+<li><strong>Stacks</strong>. Similar to Path Finder&rsquo;s Drop Stack, but you can have multiple stacks and name them what you like. Think of them as virtual folders for working with many disparate files.</li>
+<li><strong>Workspaces</strong>. Save a snapshot of your setup of panes and connections to jump right back where you were working.</li>
+<li><strong>Docked Activity Viewer</strong>. No more losing that annoying little activity window in the second monitor behind some other app.</li>
+<li><strong>Unarchiver is now built in</strong>. This is great, I&rsquo;ve used Unarchiver for ages, incredibly powerful tool.</li>
+<li><strong>Revamped Batch Rename</strong>. Now saves your previous settings when you open it again.</li>
+<li><strong>Improved filter/select tools with regex support</strong>.</li>
+<li><strong>Sync overhaul</strong>. Now supports filtering by folder and &ldquo;synclets&rdquo; which are push-button sync aliases you can drop anywhere in your file system.</li>
+<li><strong>Transfer queue</strong> with conflict/error management.</li>
+<li>New icon, undo support, revamped sidebar, better keyboard support, column and coverflow view, and many more little tweaks.</li>
+</ul><p>Last week, Panic released <a href="http://panic.com/transmit/">Transmit 4</a>, which is a gorgeous and capable superpowered FTP application, and also now allows you to have both panes showing local drives. I have a registered copy of Transmit 3 and used it before ForkLift came along, and still use it now and then for certain FTP servers that gave the old FL engine trouble. </p>
+
+<p>I spent a few days playing around with the new Transmit, and strangely the first impression I get is ForkLift Lite. However it is, in true Panic form, a very beautiful and well-thought-out product with some interesting UI decisions.</p>
+
+<p>I couldn&rsquo;t help comparing it to the beta of FL2:</p>
+
+<ul><li>Transmit uses &ldquo;paired pane tabs&rdquo; which I prefer &ndash; switching tabs changes both panes, so you can have a few different &ldquo;sessions&rdquo; going with paired local/remote directories. ForkLift allows you to have multiple tabs per pane, which many folks requested. I honestly can&rsquo;t ever see how that would be useful for a workflow, but it&rsquo;s not a huge deal.</li>
+<li>I really like Transmit&rsquo;s use of the bottom of the window as a progress meter/activity status, as well as the [^] button at bottom left to show the full activity list. Very slick and nice use of space. ForkLift 2 introduces a copy/move activity queue, but it&rsquo;s not as well integrated or transparent in use to the user. This may change in the beta stage.</li>
+<li>Transmit&rsquo;s Connect/Favorites UI is candy for the eyeballs. They obviously put a lot of work into this area. I like their use of grayed-out suggested values, especially for fields such as &ldquo;Root URL&rdquo;. I like that the Connect/Favorite UI is not a floating palette, but nicely integrated into the pane you are going to use for that connection. ForkLift uses a floating pane, which works fine but isn&rsquo;t quite as slick.</li>
+<li>Transmit 4 introduces a &ldquo;mount any favorite as a MacFuse disk&rdquo; which interesting, but I don&rsquo;t particularly get the point. If I can Remote Edit and do any type of file operations from Transmit (or FL2), why would I want the drive to be mounted in Finder? I can almost see it being useful for diff operations, one of the primary things I&rsquo;ve wanted in FL since the very early days, but it&rsquo;d still be a clumsy workflow. (Turns out BinaryNights is adding this &ldquo;Mount Favorite&rdquo; feature to FL2 in the second beta.)</li>
+<li>Transmit 4 changed all their toolbar icons to Leopard-ish monotone buttons. I&rsquo;m honestly not sure which I like better. ForkLift hired folks to make big, custom, colored icons, which are nice, but I really feel like this is an older element of OS X that might be heading the way of pinstripes, brushed steel, and overglossy reflections.</li>
+</ul><p><strong>Transmit 4</strong>:</p>
+
+<p><img src="https://64.media.tumblr.com/7e7f7ce1806701b73a3aace7bfe7d686/tumblr_inline_ml7xd5613P1qz4rgp.png" alt="image"/><img src="https://64.media.tumblr.com/96ac38ab799a174ccdf8456643dbe11f/tumblr_inline_ml7xdctorS1qz4rgp.png" alt="image"/><img src="https://64.media.tumblr.com/42e1a8eeac7c42dfc147f3ee1c74e71e/tumblr_inline_ml7xdjPjnM1qz4rgp.png" alt="image"/></p>
+
+<p>Overall, Transmit 4 is a very nice upgrade, but to me it really feels like a very pretty FTP app with limited functionality. In comparison, ForkLift feels much more powerful and useful, less expensive, and has all the features I&rsquo;d ever use in Transmit.</p>
+
+<p>I don&rsquo;t discount the appeal of nice aesthetics and a few tasteful visual flourishes. Folks spend a LOT of time in these type of apps, and having a bit of fun and whimsy goes a long way. I think FL2 could use just a few more brushstrokes to pretty it up, but I&rsquo;m already using it for production use and love it to death. I&rsquo;m sure they&rsquo;ll refine it quite a bit, it&rsquo;s only in the first public beta after all.</p>
+
+<p>I&rsquo;d be remiss to not mention <a href="http://www.cocoatech.com/">Path Finder</a>, especially since they somewhat-recently added the ability to operate with dual panes. For me, however, Path Finder has always felt like the epitomy of bloatware, trying to cram every feature imaginable into one app. Because of that, you get giant lists of tiny-font actions and options, floating panes shooting off every edge of the window, and more opportunity for instability. Some folks swear by it, but it&rsquo;s never wooed me like ForkLift did from the start.</p>
+
+<p>If I had to recommend one to someone less technical for just uploading files to their website, I&rsquo;d have a hard time deciding. Transmit errors on the side of pretty and simple, primarily sticking to the paradigm of &ldquo;local files on left, remote site files on right.&rdquo; ForkLift 2 leans more towards a power user setup, and expects one to be able to handle the flexibility and extra features with less hand-holding. For me, the latter wins out by a long shot, and if you&rsquo;re more geek than weak, I&rsquo;d suggest giving ForkLift a spin.</p>
+
+<div class="footnotes" role="doc-endnotes">
+<hr><ol><li id="fn:fn-rocklobster" role="doc-endnote">
+<p><img src="http://i.imgur.com/2df1uWl.png" alt="amiga rock lobster"/> <a href="#fnref:fn-rocklobster" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+</ol></div>

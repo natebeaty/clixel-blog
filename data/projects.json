@@ -1,0 +1,19 @@
+{
+   "list": [
+      {
+         "name":"Portfolio",
+         "url":"https://clixel.com/",
+         "desc":"My active client sites"
+      },
+      {
+         "name":"Infinite Corpse",
+         "url":"https://corpsey.trubble.club/",
+         "desc":"Infinite comics jam"
+      },
+      {
+         "name":"Con Mon",
+         "url":"https://con-mon.com/",
+         "desc":"Cartoonists convention calendar"
+      }
+   ]
+}

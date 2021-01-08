@@ -1,0 +1,17 @@
++++
+date = "2015-02-14"
+title = "Yosemite Pip Install Fix"
+slug = "yosemite-pip-install-fix"
+layout = "blog"
++++
+<p>I was getting compile errors when pip installing anything requiring compilation after upgrading to Yosemite, barfing out all sorts of cryptic nonsense ending with:</p>
+
+<pre><code>error: command '/usr/local/bin/gcc-4.2' failed with exit status 1
+</code></pre>
+
+<p>Googling that error didn&rsquo;t help, and I tried all sorts of fixes until I realized the real problem was this line in my <code>~/.bash_profile</code>:</p>
+
+<pre><code>export CC=/usr/local/bin/gcc-4.2
+</code></pre>
+
+<p>When I removed that, opened a new terminal, reactivated my virtualenv and <code>pip install -r requirements.txt</code> everything worked perfectly. Hopefully this helps someone else who&rsquo;s been having issues after upgrading to Yosemite and have some lingering bash remnants from earlier dev setups.</p>

@@ -1,0 +1,40 @@
++++
+date = "2014-01-12"
+title = "Flat File Future"
+slug = "flat-file-future"
+layout = "blog"
++++
+<p>I&rsquo;m not sure exactly where I entered the rabbit hole, but I saw a mention of <a href="http://statamic.com/">Statamic</a> somewhere, and one link led to another until I realized there is a <em>myriad</em> of very slick, flat-file-based frameworks to choose from, in just about any language you prefer.</p>
+
+<p>Perhaps the idea of a barebones, well-orchestrated platform was such a relief because I&rsquo;d been spending my entire weekend hand-coding <a href="http://d.pr/i/HzTy">PHP to send multi-part MIME</a>  order confirmation emails with <a href="http://d.pr/i/TiHd">crusty table markup</a>, in the thick of aging procedural code. From <em>&ldquo;GOOD GOD WHAT AM I DOING WITH MY LIFE&rdquo;</em> to <em>&ldquo;Oh cool, Statamic looks nice.&rdquo;</em></p>
+
+<p>Statamic just needs PHP 5.3. Pretty slim requirements<sup id="fnref:fn-payupsucker"><a href="#fn:fn-payupsucker" class="footnote-ref" role="doc-noteref">1</a></sup>. It uses YAML for all config files, and creating plugins looks <a href="https://github.com/fasterhorses/Dots-Statamic/blob/master/pi.dots.php">damn simple</a>, enough to make PHP appear not-too-shabby as a language.</p>
+
+<p>One of the earliest to start this trend is <a href="http://jekyllrb.com/">Jekyll</a>, which has been around for some time, looking just gorgeous in its Ruby minimalism suit of adult soothing dark techy hues. Installing it is ridiculously simple:</p>
+
+<pre><code>gem install jekyll
+jekyll create hotsauce
+cd hotsauce &amp;&amp; jekyll serve
+</code></pre>
+
+<p>Oo-lala! Like Python? I do. How about <a href="https://github.com/koenbok/Cactus">Cactus</a>?</p>
+
+<pre><code>sudo easy_install cactus
+cactus create holysmokes
+cd holysmokes &amp;&amp; cactus serve
+</code></pre>
+
+<p>Looks familiar! Jekyll comes a little more pre-styled, but they&rsquo;re both very similar concepts. And along with Statamic, they all use a variant of the Django templating language (Cactus uses the real deal), which is fantastic.</p>
+
+<p>But every time I get excited about using one of these handsomely simple frameworks, like <a href="https://ghost.org/">Ghost</a>, I remember that most sites I&rsquo;ve worked on just aren&rsquo;t minimal enough to be served entirely by these solutions. As soon as you need products or some custom data type the client can manage, or a page that mixes &amp; matches data types (just about <em>every site</em> we do at <a href="http://firebellydesign.com">Firebelly</a> to my chagrin), I&rsquo;d be fighting against their opinionated limitations.</p>
+
+<p>All said, the next time I decide to redo my portfolio site, or have a simple site to build, I&rsquo;m definitely going to give one of these a try. Being able to just create a new folder to extend heirarchy, work with markup entirely in inheriting templates, and version control the entire stack sounds damn refreshing.</p>
+
+<p>For now, back to my PHP spaghetti.</p>
+
+<div class="footnotes" role="doc-endnotes">
+<hr><ol><li id="fn:fn-payupsucker" role="doc-endnote">
+<p>Though one thing about Statamic: it&rsquo;s not free. I&rsquo;ve noticed a trend emerging where folks are actually -gasp- charging for their work, and as a fellow developer I think this is a fine direction to go in. <a href="#fnref:fn-payupsucker" class="footnote-backref" role="doc-backlink">↩︎</a></p>
+</li>
+
+</ol></div>

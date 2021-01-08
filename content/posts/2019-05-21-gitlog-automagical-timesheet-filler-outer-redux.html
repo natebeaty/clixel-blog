@@ -1,0 +1,25 @@
++++
+date = "2019-05-21"
+title = "Gitlog Automagical Timesheet Filler Outer Redux"
+slug = "gitlog-automagical-timesheet-filler-outer-redux"
+layout = "blog"
++++
+<p>I&rsquo;ve been using variations on this script for several years to spit out my git commit log in a timesheet-friendly format:</p>
+
+<p><a href="https://blog.clixel.com/post/111391696763/daily-git-log-for-your-timesheet">https://blog.clixel.com/post/111391696763/daily-git-log-for-your-timesheet</a></p>
+
+<p>I&rsquo;ve now refined it to a li'l bash script that has a few extra tricks up its sleeve:</p>
+
+<p><a href="https://gist.github.com/natebeaty/b3edf108434a2d16cc600bd0686e92a8">https://gist.github.com/natebeaty/b3edf108434a2d16cc600bd0686e92a8</a></p>
+
+<p>You set your name in the script, drop it in your <code>~/bin</code> dir and <code>chmod +x</code> it, then run <code>gitlog</code> from a repo dir with various options:</p>
+
+<pre><code># Usage:
+# gitlog = last 8 hours of commits
+# gitlog 48 = last 48 hours of commits
+# gitlog 2018-12-20 = all commits on 12/20/2018
+# gitlog yesterday = all commits since yesterday
+# gitlog 1 week ago = all commits since a week ago
+</code></pre>
+
+<p>Not the most elegant script, could be fancier—but I sure use the hell out of it as-is.</p>
