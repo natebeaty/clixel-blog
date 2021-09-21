@@ -11,6 +11,10 @@ A Hugo version of [blog.clixel.com](https://blog.clixel.com) using a lightly mod
 
 `fab dev`
 
+## Basics (because I have 5 minutes of memory at this point)
+
+Edit various config in `/config.toml` such as theme and colortheme. Edit layouts and styles in `/themes/cactus/`. Add a new post in `/content/posts`.
+
 ## Deploy (build static files and rsyncs)
 
 `fab deploy`
