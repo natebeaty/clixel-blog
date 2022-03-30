@@ -27,7 +27,7 @@ layout = "blog"
 
 <p>You can also do a a custom span of time e.g. <code>--since=3.days.ago --until=1.day.ago</code> if you want more than just the last day of commits.</p>
 
-<p><strong>UPDATE:</strong> If you are in the thick of push battles with your coworker on a project and want to avoid the &ldquo;Merge branch&rdquo; lines from git, you can just add <code>sed '/Merge branch/d'</code> to the mix:</p>
+<p>If you are in the thick of push battles with your coworker on a project and want to avoid the &ldquo;Merge branch&rdquo; lines from git, you can just add <code>sed '/Merge branch/d'</code> to the mix:</p>
 
 <pre><code>git log --author=Nate --since=1.day.ago --all-match --format='%s' | sed '/Merge branch/d' | tail -r | paste -s -d : - | sed -e 's/:/; /g' | pbcopy
 </code></pre>
