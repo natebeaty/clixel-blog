@@ -4,6 +4,11 @@ title = "Daily Git Log For Your Timesheet"
 slug = "daily-git-log-for-your-timesheet"
 layout = "blog"
 +++
+
+<p><strong>Update:</strong> I made this into <a href="https://gist.github.com/natebeaty/b3edf108434a2d16cc600bd0686e92a8">a bash script</a> that has sensible defaults (<code>gitlog</code> for today's log) and a few tricks (e.g., <code>gitlog yesterday</code> to yank yesterday's log into the clipboard).</p>
+
+<hr>
+
 <p>This is probably the most satisfying command-line lifehack of the year for me:</p>
 
 <pre><code>git log --author=Nate --since=1.day.ago --all-match --format='%s' | tail -r | paste -s -d : - | sed -e 's/:/; /g' | pbcopy
