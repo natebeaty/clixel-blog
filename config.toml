@@ -6,9 +6,6 @@ copyright = "Nate Beaty"
 paginate = "100"
 rssLimit = 20
 
-[outputs]
-  home = ["HTML", "RSS"]
-
 [author]
   name = "Nate Beaty"
   email = "nate@clixel.com"
@@ -22,6 +19,7 @@ rssLimit = 20
   tagsOverview = false
   projectsUrl = "https://github.com/natebeaty"
 	logo = "images/clixel-blog.png"
+  rss = true
 
 # Main nav
 [[menu.main]]
