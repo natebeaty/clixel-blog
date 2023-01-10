@@ -4,6 +4,14 @@ theme = "cactus"
 title = "Clixel Blog"
 copyright = "Nate Beaty"
 paginate = "100"
+rssLimit = 20
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[author]
+  name = "Nate Beaty"
+  email = "nate@clixel.com"
 
 [params]
   description = "Wherein [Nate](https://natebeaty.com/) gets the geek out."
