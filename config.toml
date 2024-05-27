@@ -18,7 +18,7 @@ rssLimit = 20
   postsOnHomePage = 10
   tagsOverview = false
   projectsUrl = "https://github.com/natebeaty"
-	logo = "images/clixel-blog.png"
+	logo = "images/logo-candy.png"
   rss = true
 
 # Main nav
