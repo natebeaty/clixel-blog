@@ -13,7 +13,7 @@ RewriteCond %{HTTPS} !on
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 </code></pre>
 
-<p>I was getting &quot;too many redirects&rdquo; errors. After digging around I found mention of https redirects on <a href="https://docs.webfaction.com/software/static.html#static-redirecting-from-http-to-https">this page</a> with this code:</p>
+<p>I was getting &quot;too many redirects&rdquo; errors. After digging around I found mention of https redirects in (now-defunct) WebFaction docs with this code:</p>
 
 <pre><code>RewriteEngine On
 RewriteCond %{HTTP:X-Forwarded-SSL} !on
