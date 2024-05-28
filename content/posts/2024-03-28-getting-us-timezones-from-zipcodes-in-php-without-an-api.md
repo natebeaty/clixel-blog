@@ -25,7 +25,6 @@ Revisiting this post (which I originally started writing in early 2023, egads), 
 ```
 /**
  * Timezone lookups based on ZIP code
- *
  */
 class Timezone {
 
