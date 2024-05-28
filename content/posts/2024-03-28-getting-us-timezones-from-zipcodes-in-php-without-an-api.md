@@ -6,9 +6,9 @@ slug: "getting-us-timezones-from-zipcodes-in-php-without-an-api"
 
 A client wanted to batch update a customer database with timezones so their sales team could have a better idea when best to harass folks by phone. Looking for solutions to determine timezones from an address really sent me down a rabbit hole. Stack Overflow has answers that go all over the place over the last decade plus, most of them coming down to using Google Maps API, or Nominatim/OpenStreetMap via geopy in python. The first step is to determine latitude and longitude, and then either make another API call to get timezone, or some manner of querying via boundary maps. Another solution I found was to have a giant SQL table of zipcode to timezone lookups, but it was out of date, and required quite a bit of storage for such a simple task.
 
-I really didn't need extreme accuracy, so I figured using zipcodes would be ideal. I found an old, abandoned-but-oft-forked [ruby gem](https://github.com/farski/TZip) which did just this, and without any external API requirements. I seem to keep finding abandoned ruby libraries that are *almost* perfect solutions to obscure requirements I have, like the [ONIX gem that I forked and hacked away at myself](https://github.com/natebeaty/onix), which I used in a [simple Sinatra app](https://github.com/natebeaty/onix-sinatra) to convert json book data from PHP to ugly ONIX XML.
+I really didn't need extreme accuracy, so I figured using zipcodes would be ideal. I found an old, abandoned-but-oft-forked [Ruby gem, TZip](https://github.com/farski/TZip) which did just this, and without any external API requirements. I seem to keep finding abandoned Ruby libraries that are *almost* perfect solutions to obscure requirements I have, like the [ONIX gem that I forked and hacked away at myself](https://github.com/natebeaty/onix), which I used in a [simple Sinatra app](https://github.com/natebeaty/onix-sinatra) to convert book data in JSON to ugly ONIX XML.
 
-When I peeked under the hood, I realized this ruby library would be super easy to adapt to PHP, so I could keep from having another decoupled service running that needed updating separate from my behemoth custom PHP codebase. I ended up refactoring output to match the terminology my client requested ("Eastern" instead of "America/Eastern").
+When I peeked under the hood, I realized this Ruby library would be easy to adapt to PHP, so I could keep from having another decoupled service running that needed updating separate from my behemoth custom PHP codebase. I ended up refactoring output to match the terminology my client requested ("Eastern" instead of "America/Eastern").
 
 Usage: 
 
@@ -20,7 +20,7 @@ echo $timezone->findTimezone(27705);
 
 I haven't heard any complaints after using this for over a year, so I think it's as accurate as needed! Hopefully it's of use to someone else.
 
-Revisiting this post (which I originally started writing in early 2023, egads), I had to track down the ruby library I mentioned since I didn't include it originally, and in doing so found [a newer ruby gem, ziptz](https://github.com/infused/ziptz) that would do the trick if you need this in ruby.
+Revisiting this post (which I originally started writing in early 2023, egads), I had to track down the Ruby library I mentioned, and in doing so found [a newer Ruby gem, Ziptz](https://github.com/infused/ziptz) that would do the trick if you need this in Ruby.
 
 ```
 /**
