@@ -492,15 +492,14 @@ body {
 }
 .content a {
   color: #279522;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
+  text-decoration: none;
+  background-image: linear-gradient(transparent, transparent 5px, #279522 5px, #279522);
+  background-position: bottom;
+  background-size: 100% 6px;
+  background-repeat: repeat-x;
 }
 .content a:hover {
-  color: #fff;
-  background: #279522;
-  box-shadow: .2em .2em 0 #279522, -.2em .2em 0 #279522, -.2em 0 0 #279522, .2em 0 0 #279522;
-  background-size: 100% 100%;
+  background-image: linear-gradient(transparent, transparent 4px, #21A31A 4px, #21A31A);
 }
 .content a.icon {
   background: none;
@@ -1103,7 +1102,7 @@ article header .author {
 article header .postdate {
   display: inline;
 }
-/*article .content h2::before {
+article .content h2:before {
   position: absolute;
   top: -4px;
   left: -1rem;
@@ -1112,7 +1111,6 @@ article header .postdate {
   font-weight: bold;
   font-size: 1.2rem;
 }
-*/
 article .content img,
 article .content video {
   display: block;
@@ -1593,13 +1591,4 @@ code {
 }
 .highlight .line {
   height: 22px;
-}
-
-/* Fitvids via CSS */
-iframe[src*="youtube"],
-iframe[src*="vimeo"] {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
 }
