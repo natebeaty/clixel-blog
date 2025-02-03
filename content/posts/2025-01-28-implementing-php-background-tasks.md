@@ -14,11 +14,11 @@ After much searching around, I first tried [Gearman](https://gearman.org/) since
 
 Once I had it running, I was able to set up a few worker classes and fired up [Gearman Manager](https://github.com/brianlmoon/GearmanManager) to handle daemonizing. Everything was working great until I realized I have some workers I would like to queue up in the future, and a few searches later I realized that would introduce even *more* dependencies for me to manage, possibly even reverting to using my `cronjob` setup with some tweaks for async tasks. I really wanted to keep this as simple and self-contained as possible.[^3] 
 
-While searching around for queueing support in Gearman, I saw mention of [Beanstalk](https://beanstalkd.github.io/) as an alternative which supported future-dated tasks. It also seemed like Beanstalk was a bit more straightforward. Ok! Tear it all down! Let's try this again!
+While searching around for delayed queue support in Gearman, I saw mention of [Beanstalk](https://beanstalkd.github.io/) as an alternative which supported future-dated tasks. It also seemed like Beanstalk was a bit more straightforward. Ok! Tear it all down! Let's try this again!
 
 Switching to Beanstalk was pretty painless, but ironically there was an aspect of Gearman that it *didn't* support: unique keys for each task, to avoid queueing up duplicates. I saw a suggested solution that reminded me of what I was just trying to avoid: setting up your own middleware to track keys and avoid duplication. Argh! I decided to worry about it later.[^4] 
 
-I decided to start with two workers, one for order-related hooha, and one for stock report fun. The workers basically look like this:
+I started with two workers, one for order-related hooha, and one for stock report giggles. The workers basically look like this:
 
 ```
 <?php
