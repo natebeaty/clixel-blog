@@ -64,7 +64,7 @@ try {
 }
 ```
 
-I manage these workers with Supervisor, with config `/etc/supervisor/conf.d/workers.conf`:
+I manage these workers with Supervisor, configured in `/etc/supervisor/conf.d/workers.conf`:
 
 ```
 [program:orders]
