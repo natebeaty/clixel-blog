@@ -1,7 +1,7 @@
 ---
 title: "Implementing PHP Background Tasks With Beanstalk"
-date: 2025-01-28
-slug: "2025-01-28-implementing-php-background-tasks"
+date: 2025-02-03
+slug: "2025-02-03-implementing-php-background-tasks"
 ---
 
 ![a bunch of terminal log output with silly graphics on top conveying computer consternation](/images/beanstalkin.jpg)
