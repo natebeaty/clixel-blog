@@ -1,3 +1,24 @@
+:root {
+  --bg: #20FFFF;
+  --text: #363533;
+  --link: #239C24;
+  --codeBorder: rgba(0, 0, 0, 0.5);
+  --codeBg: rgba(255, 255, 255, 0.75);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #262929;
+    --text: #1bffff;
+    --link: #29BE2F;
+    --codeBorder: rgba(255, 255, 255, 0.2);
+    --codeBg: rgba(255, 255, 255, 0.15);
+  }
+  #header-post a img {
+    filter: invert(1);
+  }
+}
+
 .inline {
   display: inline;
 }
@@ -321,7 +342,7 @@ body .h1 {
   display: block;
   margin-top: 3rem;
   margin-bottom: 1rem;
-  color: rgba(0,0,0, 0.75);
+/*  color: rgba(0,0,0, 0.75);*/
   letter-spacing: 0.01em;
   font-weight: 700;
   font-style: normal;
@@ -335,14 +356,14 @@ body .h2 {
   display: block;
   margin-top: 2rem;
   margin-bottom: 0.5rem;
-  color: #111;
+/*  color: #111;*/
   text-transform: none;
   letter-spacing: normal;
   font-weight: bold;
   font-size: 1rem;
 }
 body h3 {
-  color: #111;
+/*  color: #111;*/
   text-decoration: underline;
   font-weight: bold;
   font-size: 0.9rem;
@@ -352,7 +373,7 @@ body h5,
 body h6 {
   display: inline;
   text-decoration: none;
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
   font-weight: bold;
   font-size: 0.9rem;
 }
@@ -365,7 +386,7 @@ body h6 {
 }
 body hr {
   border: 0.5px dashed rgba(0,0,0, 0.5);
-  opacity: 0.5;
+  opacity: 0.6;
   margin: 0;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -459,8 +480,8 @@ html {
 body {
   margin: 0;
   height: 100%;
-  background-color: #20FFFF;
-  color: #363533;
+  background-color: var(--bg);
+  color: var(--text);
   font-display: swap;
   font-weight: 400;
   font-size: 14px;
@@ -478,28 +499,16 @@ body {
   min-height: 100%;
   overflow-wrap: break-word;
 }
-.content p {
-/*  hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -webkit-hyphens: auto;*/
-}
-.content code {
-/*  hyphens: manual;
-  -moz-hyphens: manual;
-  -ms-hyphens: manual;
-  -webkit-hyphens: manual;*/
-}
 .content a {
-  color: #279522;
+  color: var(--link);
   text-decoration: underline;
   text-underline-offset: 0.2em;
   text-decoration-thickness: 1px;
 }
 .content a:hover {
-  color: #fff;
-  background: #279522;
-  box-shadow: .2em .2em 0 #279522, -.2em .2em 0 #279522, -.2em 0 0 #279522, .2em 0 0 #279522;
+  color: var(--bg);
+  background: var(--link);
+  box-shadow: .2em .2em 0 var(--link), -.2em .2em 0 var(--link), -.2em 0 0 var(--link), .2em 0 0 var(--link);
   background-size: 100% 100%;
 }
 .content a.icon {
@@ -515,7 +524,6 @@ body {
 .content h4 a,
 .content h5 a,
 .content h6 a {
-  background: none;
   color: inherit;
   text-decoration: none;
 }
@@ -581,7 +589,7 @@ body {
 #header .h1 {
   margin-top: 0;
   margin-bottom: 0;
-  color: #363533;
+/*  color: var(--text);*/
   letter-spacing: 0.01em;
   font-weight: 700;
   font-style: normal;
@@ -843,7 +851,7 @@ body {
   color: #2bbc8a;
 }
 #header-post #toc nav > ul > li {
-  color: #363533;
+  color: var(--text);
   font-size: 0.8rem;
 }
 #header-post #toc nav > ul > li:before {
@@ -852,7 +860,7 @@ body {
   margin-right: 8px;
 }
 #header-post #toc nav > ul > li > ul > li {
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
   font-size: 0.7rem;
 }
 #header-post #toc nav > ul > li > ul > li:before {
@@ -1019,7 +1027,7 @@ body {
   color: #2bbc8a;
 }
 #footer-post #toc-footer #TableOfContents > ul > li {
-  color: #363533;
+  color: var(--text);
   font-size: 0.8rem;
 }
 #footer-post #toc-footer #TableOfContents > ul > li:before {
@@ -1028,7 +1036,7 @@ body {
   margin-right: 8px;
 }
 #footer-post #toc-footer #TableOfContents > ul > li > ul > li {
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
   font-size: 0.7rem;
   line-height: 15px;
 }
@@ -1058,7 +1066,7 @@ body {
   display: block;
   margin-right: 16px;
   min-width: 100px;
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
   font-size: 14px;
 }
 @media (min-width: 480px) {
@@ -1092,7 +1100,7 @@ article header .meta {
   margin-bottom: 1rem;
 }
 article header .meta * {
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
   font-size: 0.85rem;
 }
 article header .author {
@@ -1103,16 +1111,6 @@ article header .author {
 article header .postdate {
   display: inline;
 }
-/*article .content h2::before {
-  position: absolute;
-  top: -4px;
-  left: -1rem;
-  color: rgba(0,0,0, 0.75);
-  content: "#";
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-*/
 article .content img,
 article .content video {
   display: block;
@@ -1157,12 +1155,12 @@ article .content blockquote:before {
 }
 article .content blockquote footer {
   margin: line-height 0;
-  color: rgba(0,0,0, 0.5);
-  font-size: 11px;
+  opacity: 0.6;
+  font-size: 0.85rem;
 }
 article .content blockquote footer a {
   background-image: linear-gradient(transparent, transparent 5px, rgba(0,0,0, 0.5) 5px, rgba(0,0,0, 0.5));
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
 }
 article .content blockquote footer a:hover {
   background-image: linear-gradient(transparent, transparent 4px, #858585 4px, #858585);
@@ -1189,7 +1187,7 @@ article .content .caption {
   position: relative;
   display: block;
   margin-top: 0.5em;
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
   text-align: center;
   font-size: 0.9em;
 }
@@ -1235,7 +1233,7 @@ article .content .caption {
   display: block;
   margin-right: 16px;
   min-width: 100px;
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
   font-size: 14px;
 }
 @media (min-width: 480px) {
@@ -1256,7 +1254,7 @@ article .content .caption {
   bottom: 0;
   margin-bottom: 10px;
   width: 100%;
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.5;
   vertical-align: top;
   text-align: center;
   font-size: 11px;
@@ -1270,7 +1268,7 @@ article .content .caption {
   display: inline-block;
   margin-right: 15px;
   border-right: 1px solid;
-  border-color: rgba(0,0,0, 0.5);
+  border-color: var(--text);
   vertical-align: middle;
 }
 #footer li a {
@@ -1284,7 +1282,7 @@ article .content .caption {
   margin-right: 0;
 }
 #footer a {
-  color: rgba(0,0,0, 0.5);
+  color: inherit;
   text-decoration: underline;
   background-image: none;
 }
@@ -1320,14 +1318,14 @@ article .content .caption {
   text-align: center;
 }
 .pagination .page-number {
-  color: #363533;
+  color: var(--text);
   font-size: 0.8rem;
 }
 .pagination a {
   padding: 4px 6px;
   border-radius: 5px;
   background-image: none;
-  color: #363533;
+  color: var(--text);
   text-decoration: none;
 }
 .pagination a:hover {
@@ -1343,7 +1341,7 @@ article .content .caption {
   border: solid 1px rgba(0,0,0, 0.5);
   border-radius: 5px;
   background-color: #e2e0de;
-  color: #363533;
+  color: var(--text);
   font-size: 1.2rem;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1360,7 +1358,7 @@ article .content .caption {
 }
 #search-result a.search-result-title {
   background-image: none;
-  color: #363533;
+  color: var(--text);
   text-transform: capitalize;
   font-weight: bold;
   line-height: 1.2;
@@ -1380,10 +1378,10 @@ article .content .caption {
 .search-no-result {
   display: none;
   padding-bottom: 0.5em;
-  color: #363533;
+  color: var(--text);
 }
 #tag-cloud .tag-cloud-title {
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
 }
 #tag-cloud .tag-cloud-tags {
   clear: both;
@@ -1413,7 +1411,7 @@ article .content .caption {
   word-wrap: break-word;
   white-space: pre;
   content: attr(aria-label);
-  background: #363533;
+  background: var(--text);
   border-radius: 3px;
   opacity: 0;
 }
@@ -1423,7 +1421,7 @@ article .content .caption {
   display: none;
   width: 0;
   height: 0;
-  color: #363533;
+  color: var(--text);
   pointer-events: none;
   content: '';
   border: 6px solid transparent;
@@ -1454,7 +1452,7 @@ article .content .caption {
   right: 50%;
   bottom: -7px;
   margin-right: -6px;
-  border-bottom-color: #363533;
+  border-bottom-color: var(--text);
 }
 .tooltipped-sw::after {
   margin-right: -16px;
@@ -1495,10 +1493,10 @@ article .content .caption {
   }
 }
 #categories .category-list-title {
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
 }
 #categories .category-list .category-list-item .category-list-count {
-  color: rgba(0,0,0, 0.5);
+  opacity: 0.6;
 }
 #categories .category-list .category-list-item .category-list-count:before {
   content: " (";
@@ -1526,8 +1524,8 @@ pre code.hljs {
 }
 code {
   padding: 0 5px;
-  border: 1px dotted rgba(0,0,0, 0.5);
-  background: rgba(255, 255, 255, 0.75);
+  border: 1px dotted var(--codeBorder);
+  background: var(--codeBg);
   border-radius: 2px;
   -webkit-border-radius: 2px;
 }
@@ -1604,3 +1602,4 @@ iframe[src*="vimeo"] {
   height: auto;
   aspect-ratio: 16 / 9;
 }
+
