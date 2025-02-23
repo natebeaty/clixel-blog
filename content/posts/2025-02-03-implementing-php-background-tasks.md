@@ -20,7 +20,7 @@ Switching to Beanstalk was pretty painless, but ironically there was an aspect o
 
 I started with two workers, one for order-related hooha, and one for stock report giggles. The workers basically look like this:
 
-```
+```php
 <?php
 require(__DIR__.'/bootstrap.php');
 
@@ -66,7 +66,7 @@ try {
 
 I manage these workers with Supervisor, configured in `/etc/supervisor/conf.d/workers.conf`:
 
-```
+```ini
 [program:orders]
 command=/usr/bin/php /var/www/app/workers/%(program_name)s.php
 process_name=%(program_name)s_%(process_num)02d

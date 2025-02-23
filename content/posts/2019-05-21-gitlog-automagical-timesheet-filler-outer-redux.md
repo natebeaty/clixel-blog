@@ -3,6 +3,7 @@ date = "2019-05-21"
 title = "Gitlog Automagical Timesheet Filler Outer Redux"
 slug = "gitlog-automagical-timesheet-filler-outer-redux"
 layout = "blog"
+# tags = [ "bash", "terminal", "git", "timehack" ]
 +++
 I've been using variations on this script for several years to spit out my git commit log in a timesheet-friendly format, [initially just as a single command](https://blog.clixel.com/post/111391696763/daily-git-log-for-your-timesheet).
 

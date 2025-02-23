@@ -1507,7 +1507,7 @@ article .content .caption {
 pre {
   overflow-x: auto;
   padding: 0;
-  border: 1px dotted rgba(0,0,0, 0.5);
+/*  border: 1px dotted rgba(0,0,0, 0.5);*/
   border-radius: 4px;
   font-size: 13px;
   font-family: "JetBrains Mono", monospace;
@@ -1529,14 +1529,14 @@ code {
   border-radius: 2px;
   -webkit-border-radius: 2px;
 }
+code.hljs {
+  border: none;
+}
+
 .highlight {
   overflow-x: auto;
-  margin: 1rem 0;
-  padding: 10px 15px;
-  border-radius: 4px;
   background: #dedcd9;
-  font-family: "JetBrains Mono", monospace;
-  -webkit-border-radius: 4px;
+/*  font-family: "JetBrains Mono", monospace;*/
 }
 .highlight figcaption {
   margin: -5px 0 5px;
@@ -1602,4 +1602,3 @@ iframe[src*="vimeo"] {
   height: auto;
   aspect-ratio: 16 / 9;
 }
-
