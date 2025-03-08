@@ -1,5 +1,5 @@
 public/
 .venv
 .hugo_build.lock
-
 .nova
+.zed
