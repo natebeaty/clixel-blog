@@ -939,11 +939,11 @@ body {
   background: #dedcd9;
   transition: opacity 0.2s;
 }
-#footer-post a {
+/* #footer-post a {
   background: none;
   color: inherit;
   text-decoration: none;
-}
+} */
 #footer-post #nav-footer {
   padding-right: 1rem;
   padding-left: 1rem;
@@ -1245,7 +1245,6 @@ article .content .caption {
   bottom: 0;
   margin-bottom: 10px;
   width: 100%;
-  opacity: 0.5;
   vertical-align: top;
   text-align: center;
   font-size: 11px;
@@ -1272,14 +1271,7 @@ article .content .caption {
 #footer li:last-child a {
   margin-right: 0;
 }
-#footer a {
-  color: inherit;
-  text-decoration: underline;
-  background-image: none;
-}
-#footer a:hover {
-  color: #858585;
-}
+
 #footer .footer-left {
   height: 20px;
   vertical-align: middle;
