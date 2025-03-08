@@ -34,11 +34,11 @@ function footnotePopup(showIndex, showCloseBtn) {
     }
 
     // Remove redundant [return] links from footnote list (optional)
-    const fnReturns = document.querySelectorAll("a.footnote-return,a.footnote-backref,role[doc-backlink]");
-    fnReturns.forEach(function(fnReturn) {
-        const parent = fnReturn.parentNode;
-        parent.removeChild(fnReturn);
-    });
+    // const fnReturns = document.querySelectorAll("a.footnote-return,a.footnote-backref,role[doc-backlink]");
+    // fnReturns.forEach(function(fnReturn) {
+    //     const parent = fnReturn.parentNode;
+    //     parent.removeChild(fnReturn);
+    // });
 
     const fnRefs = document.querySelectorAll("sup[id^='fnref:']");
     fnRefs.forEach(function(fnRef) {
