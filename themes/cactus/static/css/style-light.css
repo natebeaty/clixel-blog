@@ -6,6 +6,8 @@
   --link: #239C24;
   --codeBorder: rgba(0, 0, 0, 0.5);
   --codeBg: rgba(255, 255, 255, 0.75);
+  --footerNavBg: var(--popupBg);
+  --footerNavLink: var(--text);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -931,9 +933,9 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 5000000;
+  z-index: 100;
   width: 100%;
-  border-top: 1px solid rgba(0,0,0, 0.5);
+  border-top: 3px solid rgba(0,0,0, 0.5);
   background: #dedcd9;
   transition: opacity 0.2s;
 }
@@ -942,40 +944,26 @@ body {
   color: inherit;
   text-decoration: none;
 }
-#footer-post a.icon {
-  background: none;
-}
-#footer-post a.icon:hover {
-  color: #2bbc8a;
-}
 #footer-post #nav-footer {
   padding-right: 1rem;
   padding-left: 1rem;
-  background: #cdcac6;
+  background: var(--footerNavBg);
   text-align: center;
 }
 #footer-post #nav-footer a {
-  color: rgba(0,0,0, 0.75);
+  color: var(--footerNavLink);
   font-size: 1em;
 }
-#footer-post #nav-footer a:hover {
-  background-image: linear-gradient(transparent, transparent 5px, rgba(0,0,0, 0.75) 5px, rgba(0,0,0, 0.75));
-  background-position: bottom;
-  background-size: 100% 6px;
-  background-repeat: repeat-x;
-}
 #footer-post #nav-footer ul {
-  display: table;
+  display: inline-block;
   margin: 0;
   padding: 0;
   width: 100%;
   list-style-type: none;
 }
 #footer-post #nav-footer ul li {
-  display: inline-table;
+  display: inline-block;
   padding: 10px;
-  width: 20%;
-  vertical-align: middle;
 }
 #footer-post #actions-footer {
   overflow: auto;
@@ -1607,18 +1595,19 @@ iframe[src*="vimeo"] {
 /* footnote popups */
 .bottom-panel {
   position: fixed;
-  font-size: 0.9rem;
+  z-index: 200;
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: var(--popupBg);
+  color: var(--popupText);
+  border-top: 3px solid var(--codeBorder);
+
 }
 .popup-wrapper {
   display: none;
   max-width: 48rem;
   margin: 0 auto;
-  background-color: var(--popupBg);
-  color: var(--popupText);
-  border-top: 3px solid var(--codeBorder);
 }
 
 #popup-index {
